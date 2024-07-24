@@ -99,8 +99,7 @@ const Card = ({ formData, setFormData }) => {
                 </p>
               </div>
             </div>
-
-           
+          
           </div>
         </div>
       ))}
