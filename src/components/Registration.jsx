@@ -1,18 +1,42 @@
-import React from 'react';
+import React from "react";
 
-const RegistrationForm = ({ formData, degrees, error, onFormChange, onFormSubmit }) => {
+const RegistrationForm = ({
+  formData,
+  degrees,
+  error,
+  onFormChange,
+  onFormSubmit,
+}) => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-size-200 bg-pos-0 animate-background-pan">
+    <div className="relative flex flex-col items-center min-h-screen bg-gradient-to-r from-green-500 via-green-400 to-green-300 bg-size-200 bg-pos-0 animate-background-pan">
+      <div className="w-full bg-white">
+        <a
+          href="https://hopingminds.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="./hm.png"
+            alt="Logo"
+            className="object-contain w-[200px] h-[80px] sm:w-[300px] sm:h-[100px] cursor-pointer"
+          />
+        </a>
+      </div>
+
       <form
-        className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-lg"
+        className="bg-white mt-9 p-4 sm:p-6 md:p-8 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-lg"
         onSubmit={onFormSubmit}
       >
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-center">Registration</h2>
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-center">
+          Registration
+        </h2>
 
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">Name</label>
+          <label className="block text-gray-700 text-sm sm:text-base">
+            Name
+          </label>
           <input
             type="text"
             name="name"
@@ -23,7 +47,9 @@ const RegistrationForm = ({ formData, degrees, error, onFormChange, onFormSubmit
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">Email</label>
+          <label className="block text-gray-700 text-sm sm:text-base">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -34,7 +60,9 @@ const RegistrationForm = ({ formData, degrees, error, onFormChange, onFormSubmit
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">Contact</label>
+          <label className="block text-gray-700 text-sm sm:text-base">
+            Contact
+          </label>
           <input
             type="number"
             name="phone"
@@ -45,7 +73,9 @@ const RegistrationForm = ({ formData, degrees, error, onFormChange, onFormSubmit
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">College Name</label>
+          <label className="block text-gray-700 text-sm sm:text-base">
+            College Name
+          </label>
           <input
             type="text"
             name="college"
@@ -56,7 +86,9 @@ const RegistrationForm = ({ formData, degrees, error, onFormChange, onFormSubmit
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">Degree</label>
+          <label className="block text-gray-700 text-sm sm:text-base">
+            Degree
+          </label>
           <select
             name="degree"
             value={formData.degree}
@@ -75,7 +107,7 @@ const RegistrationForm = ({ formData, degrees, error, onFormChange, onFormSubmit
         <div className="text-center">
           <button
             type="submit"
-            className="px-4 py-2  font-bold sm:px-6 sm:py-2 bg-green-600 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-700 transition"
+            className="px-4 py-2 font-bold sm:px-6 sm:py-2 bg-green-600 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-700 transition"
           >
             Next
           </button>

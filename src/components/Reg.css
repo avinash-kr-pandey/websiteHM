@@ -1,0 +1,53 @@
+/* Add this to your global CSS file or Tailwind configuration */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes moveBubbles {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(10vw);
+  }
+}
+
+.bubble {
+  @apply absolute bottom-[-150px] bg-white bg-opacity-20 rounded-full animate-moveBubbles;
+}
+
+.bubble:nth-child(1) {
+  @apply w-[40px] h-[40px];
+  animation-duration: 8s;
+}
+
+.bubble:nth-child(2) {
+  @apply w-[50px] h-[50px];
+  animation-duration: 10s;
+}
+
+.bubble:nth-child(3) {
+  @apply w-[30px] h-[30px];
+  animation-duration: 12s;
+}
+
+.bubble:nth-child(4) {
+  @apply w-[60px] h-[60px];
+  animation-duration: 14s;
+}
+
+.bubble:nth-child(5) {
+  @apply w-[70px] h-[70px];
+  animation-duration: 16s;
+}
+
+.bubble:nth-child(6) {
+  @apply w-[40px] h-[40px];
+  animation-duration: 18s;
+}
+
+.bubble:nth-child(7) {
+  @apply w-[50px] h-[50px];
+  animation-duration: 20s;
+}
