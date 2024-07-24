@@ -5,7 +5,6 @@ import Card from './components/Card';
 import RegistrationForm from './components/Registration';
 import Success from './components/Sucess';
 
-
 function App() {
   const [formData, setFormData] = useState({
     name: "",
@@ -33,10 +32,28 @@ function App() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const validateForm = () => {
+    if (!formData.name || !formData.email || !formData.phone || !formData.college || !formData.degree) {
+      setError("Please fill out all fields.");
+      return false;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setError("Please enter a valid email address.");
+      return false;
+    }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setError("Please enter a valid 10-digit phone number.");
+      return false;
+    }
+    setError("");
+    return true;
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Navigate to /pagetwo with form data
-    navigate('/pagetwo', { state: { formData } });
+    if (validateForm()) {
+      navigate('/pagetwo', { state: { formData } });
+    }
   };
 
   return (
@@ -60,7 +77,6 @@ function App() {
         }
       />
       <Route path='/success' element={<Success />} />
-
     </Routes>
   );
 }
