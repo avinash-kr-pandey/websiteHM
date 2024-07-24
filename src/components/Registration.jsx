@@ -18,13 +18,13 @@ const RegistrationForm = ({
           <img
             src="./hm.png"
             alt="Logo"
-            className="object-contain w-[200px] h-[80px] sm:w-[300px] sm:h-[100px] cursor-pointer"
+            className="object-contain w-[300px] h-[100px] cursor-pointer"
           />
         </a>
       </div>
 
       <form
-        className="bg-white mt-9 p-4 sm:p-6 md:p-8 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-lg"
+        className="bg-white mt-9  p-4 sm:p-6 md:p-8 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-lg"
         onSubmit={onFormSubmit}
       >
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-center">
