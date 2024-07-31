@@ -4,6 +4,10 @@ import './App.css';
 import Card from './components/Card';
 import RegistrationForm from './components/Registration';
 import Success from './components/Sucess';
+import { BASE_URL } from './api/api';
+import toast, { Toaster } from 'react-hot-toast';
+import NewCard from './components/NewCard';
+import Manage from './components/Manage';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -49,14 +53,31 @@ function App() {
     return true;
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async(e) => {
     e.preventDefault();
-    if (validateForm()) {
-      navigate('/pagetwo', { state: { formData } });
+    try {
+      if (validateForm()) {
+      const data=await fetch(BASE_URL+'/validateuserfields?email='+formData?.email+'&phone='+formData?.phone)
+      const response=await data?.json()
+      if(!response.success){
+        toast.error(response.message)
+      }
+      else{
+    navigate('/pagetwo', { state: { formData } });
+      }
+      console.log(response);
+      }
+    } catch (error) {
+      
     }
+
   };
 
   return (
+    <>
+    <Toaster position='top-center' toastOptions={{
+      duration:500
+    }}/>
     <Routes>
       <Route
         path='/'
@@ -73,11 +94,14 @@ function App() {
       <Route
         path='/pagetwo'
         element={
-          <Card formData={formData} setFormData={setFormData} />
+          // <Card formData={formData} setFormData={setFormData} />
+          // <NewCard formData={formData} setFormData={setFormData} />
+          <Manage formData={formData} setFormData={setFormData} />
         }
       />
       <Route path='/success' element={<Success />} />
     </Routes>
+    </>
   );
 }
 

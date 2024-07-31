@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Card = ({ formData, setFormData }) => {
   console.log(formData);
@@ -37,17 +38,21 @@ const Card = ({ formData, setFormData }) => {
       axios
         .post("https://api.hopingminds.com/api/registeruserform", formData)
         .then((response) => {
-          // Navigate to the success page after successful submission
+          // Navigate to the success page after successful submission   
+          
           setTimeout(() => {
             navigate("/success");
           }, 1000); // Optional delay for spinner visibility
         })
         .catch((error) => {
-          console.error("Error registering course:", error.response ? error.response.data : error.message);
+            toast.error(error?.response?.data?.message)
+       
+          console.error("Error registering course:", error.response ? error?.response?.data : error.message);
         })
         .finally(() => {
           setSending(false); // Hide spinner when request completes
         });
+        
     } else {
       console.log("No course selected");
     }
@@ -55,6 +60,9 @@ const Card = ({ formData, setFormData }) => {
 
   return (
     <div className="p-4 flex flex-col items-center">
+      <Toaster  position='top-center' toastOptions={{
+      duration:500
+    }}/>
       {loading ? (
         <div className="relative h-64">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] bg-[url('https://loading.io/assets/mod/spinner/spinner/lg.gif')] bg-no-repeat bg-center"></div>

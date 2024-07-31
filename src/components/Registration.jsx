@@ -24,7 +24,7 @@ const RegistrationForm = ({
       </div>
 
       <form
-        className="bg-white mt-9  p-4 sm:p-6 md:p-8 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-lg"
+        className="bg-white mt-9 p-4 sm:p-6 md:p-8 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-lg"
         onSubmit={onFormSubmit}
       >
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-center">
@@ -34,9 +34,7 @@ const RegistrationForm = ({
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">
-            Name
-          </label>
+          <label className="block text-gray-700 text-sm sm:text-base">Name</label>
           <input
             type="text"
             name="name"
@@ -48,9 +46,7 @@ const RegistrationForm = ({
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">
-            Email
-          </label>
+          <label className="block text-gray-700 text-sm sm:text-base">Email</label>
           <input
             type="email"
             name="email"
@@ -62,9 +58,7 @@ const RegistrationForm = ({
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">
-            Contact
-          </label>
+          <label className="block text-gray-700 text-sm sm:text-base">Contact</label>
           <input
             type="number"
             name="phone"
@@ -76,9 +70,7 @@ const RegistrationForm = ({
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">
-            College Name
-          </label>
+          <label className="block text-gray-700 text-sm sm:text-base">College Name</label>
           <input
             type="text"
             name="college"
@@ -90,9 +82,7 @@ const RegistrationForm = ({
         </div>
 
         <div className="mb-3 sm:mb-4">
-          <label className="block text-gray-700 text-sm sm:text-base">
-            Degree
-          </label>
+          <label className="block text-gray-700 text-sm sm:text-base">Degree</label>
           <select
             name="degree"
             value={formData.degree}
@@ -108,10 +98,29 @@ const RegistrationForm = ({
           </select>
         </div>
 
+        <div className="mb-3 sm:mb-4">
+          <label className="block text-gray-700 text-sm sm:text-base">Year Of Passing</label>
+          <select
+            name="yearOfPassing"
+            value={formData.yearOfPassing}
+            onChange={onFormChange}
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">Select Passing Year</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+          </select>
+        </div>
+
         <div className="text-center">
           <button
             type="submit"
-            className="px-4 py-2 font-bold sm:px-6 sm:py-2 bg-green-600 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-700 transition"
+            className="px-4 py-2 font-bold sm:px-6 sm:py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-700 transition"
           >
             Next
           </button>
